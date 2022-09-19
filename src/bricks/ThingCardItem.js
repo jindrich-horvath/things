@@ -2,7 +2,7 @@ import {Card} from "react-bootstrap";
 
 
 
-function ThingItem({thing}) {
+function ThingCardItem({thing}) {
   return (
       <Card style={{ width: '18rem' }}>
         <Card.Body>
@@ -15,4 +15,4 @@ function ThingItem({thing}) {
   );
 }
 
-export default ThingItem;
+export default ThingCardItem;

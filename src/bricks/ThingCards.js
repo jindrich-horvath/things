@@ -1,12 +1,12 @@
-import ThingItem from "./ThingItem";
+import ThingCardItem from "./ThingCardItem";
 
-function ThingList(props) {
+function ThingCards(props) {
   return (
     <div className="d-flex flex-column gap-3 align-items-center">
       {
         props.things.map((th, i) => {
           return (
-              <ThingItem key={i} thing={th} />
+              <ThingCardItem key={i} thing={th} />
           )
         })
       }
@@ -14,4 +14,4 @@ function ThingList(props) {
   );
 }
 
-export default ThingList;
+export default ThingCards;
