@@ -18,7 +18,7 @@ function ThingFormModal() {
     //...
     // const {show, onHide, onAdd, onEdit} = props
 
-    const handleChange = (inputName, value) => {
+    const setInput = (inputName, value) => {
         setFormData((fd) => {
             const result = {...fd}
             result[inputName] = value
@@ -28,7 +28,7 @@ function ThingFormModal() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(formData)
+        alert(`just called server with request to add: { happy: ${formData.happy}, wrong: ${formData.wrong} }`)
     }
 
     return (
@@ -52,16 +52,17 @@ function ThingFormModal() {
                             <Form.Check label="Happy"
                                         name="happy"
                                         type="checkbox"
-                                        onChange={(e) => handleChange("happy", e.target.value)}
+                                        checked={formData.happy}
+                                        onChange={(e) => setInput("happy", e.target.checked)}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Wrong</Form.Label>
                             <Form.Control type="number"
                                           name="wrong"
-                                          value={formData.description}
+                                          value={formData.wrong}
                                           max={10}
-                                          onChange={(e) => handleChange("wrong", parseInt(e.target.value))}
+                                          onChange={(e) => setInput("wrong", parseInt(e.target.value))}
                             />
                         </Form.Group>
                     </Modal.Body>
