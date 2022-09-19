@@ -1,28 +1,39 @@
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import ThingView from "./bricks/ThingView";
+import ChildrenExample from "./bricks/ChildrenExample";
 
-const things = [
-  {
-    happy: true,
-    wrong: 6
-  },
-  {
-    happy: false,
-    wrong: 1
-  },
-  {
-    happy: false,
-    wrong: 8
-  }
-]
 
 function App() {
-  return (
-    <div className="App p-3">
-      <ThingView things={things} />
-    </div>
-  );
+
+    return (
+        <div className="App p-3">
+
+            <div>
+                ahoj
+                <div>
+                    svete
+                    <div>
+                        se
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            Example 1
+
+            <ChildrenExample>
+                AHOJ
+                <div>some more text</div>
+            </ChildrenExample>
+
+            <hr />
+
+            Example 2
+            <ChildrenExample children={<div>DIV</div>} />
+
+        </div>
+    );
 }
 
 export default App;
