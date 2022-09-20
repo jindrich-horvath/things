@@ -1,17 +1,21 @@
 import {Button, Form, Modal} from "react-bootstrap";
 import {mdiWindowClose} from "@mdi/js";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Icon from "@mdi/react";
 
 
-function ThingFormModal() {
+function ThingFormModal({show, onHide, thing, onSubmit}) {
 
     const [formData, setFormData] = useState({
         happy: true,
         wrong: 0
     });
 
-    const [show, setShow] = useState(false)
+    useEffect(() => {
+        if (thing) {
+            setFormData(thing)
+        }
+    }, [thing])
 
     //const show = props.show
     //cons onHide = props.onHide
@@ -28,23 +32,33 @@ function ThingFormModal() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        alert(`just called server with request to add: { happy: ${formData.happy}, wrong: ${formData.wrong} }`)
+
+        if (thing) { //editovat
+            alert(`just called server with request to EDIT: { happy: ${formData.happy}, wrong: ${formData.wrong}, id: ${formData.id} }`)
+        } else { //vytvarim
+            alert(`just called server with request to CREATE: { happy: ${formData.happy}, wrong: ${formData.wrong} }`)
+        }
+
+        if (onSubmit)
+            onSubmit(formData)
+
+        onHide()
     }
 
     return (
         <>
-            <Button onClick={() => setShow(old => !old)}>
-                Add Thing
-            </Button>
+            {/*<Button onClick={() => setShow(old => !old)}>*/}
+            {/*    Add Thing*/}
+            {/*</Button>*/}
 
             <Modal show={show}>
                 <Form noValidate onSubmit={handleSubmit}>
                     <Modal.Header>
-                        <Modal.Title>Ad/Edit Thing</Modal.Title>
+                        <Modal.Title>{thing ? 'Edit' : 'Add'} Thing</Modal.Title>
                         <Icon
                             size={1}
                             path={mdiWindowClose}
-                            onClick={() => setShow(sh => !sh)}
+                            onClick={onHide}
                         />
                     </Modal.Header>
                     <Modal.Body>

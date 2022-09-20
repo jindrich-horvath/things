@@ -7,9 +7,19 @@ import ThingListSimple from "./ThingListSimple";
 function ThingView(props) {
 
     const [viewState, setViewState] = useState("cards")
+    const [showModal, setShowModal] = useState(false)
 
     const handleSwitchView = () => {
         setViewState(old => old === "cards" ? "simple" : "cards")
+    }
+    const handleAddThing = () => {
+        setShowModal(() => true)
+    }
+    const handleModalHide = () => {
+        setShowModal(() => false)
+    }
+    const handleSubmit = (thing) => {
+        props.onThing(thing)
     }
 
     return (
@@ -19,7 +29,12 @@ function ThingView(props) {
                     Switch View
                 </Button>
 
-                <ThingFormModal/>
+                <Button onClick={handleAddThing}>
+                    Add Thing
+                </Button>
+
+                <ThingFormModal show={showModal}
+                                onHide={handleModalHide} onSubmit={handleSubmit} />
             </div>
 
             <hr/>
@@ -32,7 +47,7 @@ function ThingView(props) {
 
             {
                 viewState === "cards" ?
-                    <ThingCards things={props.things}/> :
+                    <ThingCards things={props.things} onThing={props.onThing} /> :
                     null
             }
         </>
