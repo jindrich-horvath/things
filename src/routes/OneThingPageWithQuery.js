@@ -1,17 +1,17 @@
-import {useParams} from "react-router-dom";
+import {useSearchParams} from "react-router-dom";
 import {useContext} from "react";
 import {ThingsContext} from "../ThingsProvider";
 
-function OneThingPage() {
+function OneThingPageWithQuery() {
 
-    const params = useParams()
-    const id = params.id
+    const [params, _] = useSearchParams();
+    const id = params.get("id")
     const thingsContext = useContext(ThingsContext)
     const thing = thingsContext.getById(id)
 
     return (
         <div className="App p-3">
-            <h3>One Thing (id got from url)</h3>
+            <h3>One Thing (id got from url query)</h3>
 
             <hr />
 
@@ -22,4 +22,4 @@ function OneThingPage() {
     );
 }
 
-export default OneThingPage;
+export default OneThingPageWithQuery;

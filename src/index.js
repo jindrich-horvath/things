@@ -7,6 +7,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import OneThingPage from "./routes/OneThingPage";
 import ThingsProvider from "./ThingsProvider";
 import ThingListPage from "./routes/ThingListPage";
+import OneThingPageWithQuery from "./routes/OneThingPageWithQuery";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +18,7 @@ root.render(
                     <Route path="/" element={<App/>}>
                         <Route path="/" element={<ThingListPage/>}/>
                         <Route path="one/:id" element={<OneThingPage/>}/>
+                        <Route path="one2" element={<OneThingPageWithQuery/>}/>
                     </Route>
                 </Routes>
             </BrowserRouter>
