@@ -1,4 +1,5 @@
 # Things
 
-### diagram at
-https://miro.com/app/board/uXjVPVFRDY0=/
+### thing-route-params
+* see index.js & OnethingPage.js
+
