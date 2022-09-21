@@ -1,5 +1,6 @@
+import './theme.sass';
 import './App.css';
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import ThingView from "./bricks/ThingView";
 import {useState} from "react";
 
