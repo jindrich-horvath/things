@@ -7,5 +7,9 @@
 * see `theme.sass` <br />
 
 
+* see `App.js` <br />
+`import './theme.sass';`
+
+
 * for list of available variables see 
 https://getbootstrap.com/docs/5.0/customize/color/#theme-colors
