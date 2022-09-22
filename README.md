@@ -1,4 +1,11 @@
-# Things
+# Things - overrdie boostrap variables
 
-### diagram at
-https://miro.com/app/board/uXjVPVFRDY0=/
+* see `package.json` <br />
+... `"sass": "^1.54.9",`
+
+
+* see `theme.sass` <br />
+
+
+* for list of available variables see 
+https://getbootstrap.com/docs/5.0/customize/color/#theme-colors
